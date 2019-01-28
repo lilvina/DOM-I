@@ -42,7 +42,7 @@ let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
 
 let imgCta = document.getElementById("cta-img")
-imgCta.setAttribute('src', siteContent["nav"]["img-src"])
+imgCta.setAttribute('src', siteContent["cta"]["img-src"])
 
 let imgMiddle = document.getElementById("middle-img")
-imgMiddle.setAttribute('src', siteContent["nav"]["img-src"])
+imgMiddle.setAttribute('src', siteContent["main-content"]["img-src"])
