@@ -89,3 +89,15 @@ fillInContentCards()
 
 document.querySelector('.cta-text h1').textContent = siteContent.cta.h1
 document.querySelector('.cta-text button').textContent = siteContent.cta.button
+
+const contactBottom = document.querySelector(".contact h4")
+contactBottom.textContent = siteContent["contact"]["contact-h4"]
+
+const contactBottom2 = document.querySelectorAll(".contact p")
+contactBottom2[0].textContent = siteContent["contact"]["address"]
+contactBottom2[1].textContent = siteContent["contact"]["phone"]
+contactBottom2[2].textContent = siteContent["contact"]["email"]
+
+//Copyright
+const copy = document.querySelector("footer p")
+copy.textContent = siteContent["footer"]["copyright"]
