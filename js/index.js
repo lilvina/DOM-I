@@ -46,3 +46,46 @@ imgCta.setAttribute('src', siteContent["cta"]["img-src"])
 
 let imgMiddle = document.getElementById("middle-img")
 imgMiddle.setAttribute('src', siteContent["main-content"]["img-src"])
+//
+// //update content
+const namesForNavLinks = Object.entries(siteContent.nav)
+.filter(element => element[0].includes('nav-item'))
+.map(element => element[1])
+
+const contentArrays = Object.entries(siteContent['main-content'])
+.filter(element => element[0].includes('h4'))
+.map(element => element[1])
+
+const textArrays = Object.entries(siteContent['main-content'])
+.filter(element => element[0].includes('content'))
+.map(element => element[1])
+
+const fillInNav = () => {
+  let links = document.querySelectorAll('nav a')
+  let i = 0
+  links.forEach(element => {
+    element.textContent = links[i]
+    i++
+  })
+}
+fillInNav()
+
+const fillInContentCards = () => {
+  let titlesContent = document.querySelectorAll('.text-content h4')
+  let i = 0
+  titlesContent.forEach(element => {
+    element.textContent = contentArrays[i]
+    i++
+  })
+
+  let textForContent = document.querySelectorAll('.text-content p')
+  i = 0
+  textForContent.forEach(element => {
+    element.textContent = textArrays[i]
+    i++
+  })
+}
+fillInContentCards()
+
+document.querySelector('.cta-text h1').textContent = siteContent.cta.h1
+document.querySelector('.cta-text button').textContent = siteContent.cta.button
