@@ -45,8 +45,8 @@ let imgCta = document.getElementById("cta-img")
 imgCta.setAttribute('src', siteContent["cta"]["img-src"])
 
 let imgMiddle = document.getElementById("middle-img")
-imgMiddle.setAttribute('src', siteContent["main-content"]["img-src"])
-//
+imgMiddle.setAttribute('src', siteContent["main-content"]["middle-img-src"])
+
 // //update content
 const namesForNavLinks = Object.entries(siteContent.nav)
 .filter(element => element[0].includes('nav-item'))
@@ -64,6 +64,7 @@ const fillInNav = () => {
   let links = document.querySelectorAll('nav a')
   let i = 0
   links.forEach(element => {
+    element.style.color = 'green'
     element.textContent = links[i]
     i++
   })
@@ -101,3 +102,13 @@ contactBottom2[2].textContent = siteContent["contact"]["email"]
 //Copyright
 const copy = document.querySelector("footer p")
 copy.textContent = siteContent["footer"]["copyright"]
+
+//append and prepend
+let headerNav = document.querySelector("nav")
+let sonGoku = document.createElement("a")
+let vegeta = document.createElement("a")
+headerNav.appendChild(sonGoku)
+sonGoku.textContent = "Kamehameha!"
+
+headerNav.prepend(vegeta)
+vegeta.textContent = "Final Flash!"
