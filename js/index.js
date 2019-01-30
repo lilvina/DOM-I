@@ -40,3 +40,75 @@ const siteContent = {
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
+
+let imgCta = document.getElementById("cta-img")
+imgCta.setAttribute('src', siteContent["cta"]["img-src"])
+
+let imgMiddle = document.getElementById("middle-img")
+imgMiddle.setAttribute('src', siteContent["main-content"]["middle-img-src"])
+
+// //update content
+const namesForNavLinks = Object.entries(siteContent.nav)
+.filter(element => element[0].includes('nav-item'))
+.map(element => element[1])
+
+const contentArrays = Object.entries(siteContent['main-content'])
+.filter(element => element[0].includes('h4'))
+.map(element => element[1])
+
+const textArrays = Object.entries(siteContent['main-content'])
+.filter(element => element[0].includes('content'))
+.map(element => element[1])
+
+const fillInNav = () => {
+  let links = document.querySelectorAll('nav a')
+  let i = 0
+  links.forEach(element => {
+    element.style.color = 'green'
+    element.textContent = links[i]
+    i++
+  })
+}
+fillInNav()
+
+const fillInContentCards = () => {
+  let titlesContent = document.querySelectorAll('.text-content h4')
+  let i = 0
+  titlesContent.forEach(element => {
+    element.textContent = contentArrays[i]
+    i++
+  })
+
+  let textForContent = document.querySelectorAll('.text-content p')
+  i = 0
+  textForContent.forEach(element => {
+    element.textContent = textArrays[i]
+    i++
+  })
+}
+fillInContentCards()
+
+document.querySelector('.cta-text h1').textContent = siteContent.cta.h1
+document.querySelector('.cta-text button').textContent = siteContent.cta.button
+
+const contactBottom = document.querySelector(".contact h4")
+contactBottom.textContent = siteContent["contact"]["contact-h4"]
+
+const contactBottom2 = document.querySelectorAll(".contact p")
+contactBottom2[0].textContent = siteContent["contact"]["address"]
+contactBottom2[1].textContent = siteContent["contact"]["phone"]
+contactBottom2[2].textContent = siteContent["contact"]["email"]
+
+//Copyright
+const copy = document.querySelector("footer p")
+copy.textContent = siteContent["footer"]["copyright"]
+
+//append and prepend
+let headerNav = document.querySelector("nav")
+let sonGoku = document.createElement("a")
+let vegeta = document.createElement("a")
+headerNav.appendChild(sonGoku)
+sonGoku.textContent = "Kamehameha!"
+
+headerNav.prepend(vegeta)
+vegeta.textContent = "Final Flash!"
